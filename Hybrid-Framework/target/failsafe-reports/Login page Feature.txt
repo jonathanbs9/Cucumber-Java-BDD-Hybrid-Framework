@@ -1,0 +1,7 @@
+-------------------------------------------------------------------------------
+Test set: Login page Feature
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 41.185 s <<< FAILURE! - in Login page Feature
+Login page Feature.Login with correct credentials  Time elapsed: 9.6 s  <<< ERROR!
+java.lang.NullPointerException
+
