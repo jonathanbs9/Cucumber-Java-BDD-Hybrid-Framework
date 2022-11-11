@@ -42,9 +42,6 @@ public class AccountPageSteps {
         System.out.println("  Actual Account Section List: \n" +actualList);
 
         Assert.assertTrue(actualList.containsAll(expectedList));
-
-
-
     }
     @Then("account section count should be {int}")
     public void account_section_count_should_be(Integer expectedSectionCount) {

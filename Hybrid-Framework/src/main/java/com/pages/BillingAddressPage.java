@@ -1,5 +1,6 @@
 package com.pages;
 
+import com.qa.factory.DriverFactory;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,13 +19,13 @@ public class BillingAddressPage {
     private By phoneInput = By.xpath("//input[@id='billing_phone']");
 
     private By countryDiv = By.xpath("//span[@id='select2-chosen-1']");
+
     private By countrySelect = By.xpath("//div[@id='select2-drop-mask']");
     private By countryInput = By.xpath("//input[@id='s2id_autogen1_search']");
     private By addressOneInput = By.xpath("//input[@id='billing_address_1']");
     private By addressTwoInput = By.xpath("//input[@id='billing_address_2']");
     private By cityInput = By.xpath("//input[@id='billing_city']");
 
-    //private By stateDiv = By.xpath("//span[@id='select2-chosen-2']");
     private By stateInput = By.xpath("//input[@id='s2id_autogen2']");
     private By zipCodeInput = By.xpath("//input[@id='billing_postcode']");
 
@@ -109,10 +110,6 @@ public class BillingAddressPage {
         System.out.println("Campos completados");
     }
 
-    public void navigateToAddressPage(){
-        driver.get("https://practice.automationtesting.in/my-account/edit-address/billing/");
-    }
-
     public void moveToState(){
         WebElement element = driver.findElement(stateInput);
         Actions actions = new Actions(driver);
@@ -128,6 +125,5 @@ public class BillingAddressPage {
         WebElement element = driver.findElement(invisibleSaveButton);
         JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("arguments[0].click();", element);
-        Thread.sleep(5000);
     }
 }

@@ -6,8 +6,8 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage {
     private WebDriver driver;
 
-    private By email = By.xpath("//input[@id='username']");
-    private By password = By.xpath("//input[@id='password']");
+    private By emailInput = By.xpath("//input[@id='username']");
+    private By passwordInput = By.xpath("//input[@id='password']");
     private By loginButton = By.xpath("//input[@type='submit' and @name='login']");
     private By lostPassword = By.xpath("//a[contains(text(),'Lost your password?')]");
 
@@ -24,11 +24,11 @@ public class LoginPage {
     }
 
     public void enterUsername(String username){
-        driver.findElement(email).sendKeys(username);
+        driver.findElement(emailInput).sendKeys(username);
     }
 
     public void enterPassword(String pass){
-        driver.findElement(password).sendKeys(pass);
+        driver.findElement(passwordInput).sendKeys(pass);
     }
 
     public void clickLogin(){
@@ -37,9 +37,11 @@ public class LoginPage {
 
     public AccountPage doLogin(String username, String pass){
         System.out.println("Login with: \nusername: "+username+"\npassword: "+pass);
-        driver.findElement(email).sendKeys(username);
-        driver.findElement(password).sendKeys(pass);
+
+        driver.findElement(emailInput).sendKeys(username);
+        driver.findElement(passwordInput).sendKeys(pass);
         driver.findElement(loginButton).click();
+
         return new AccountPage(driver);
     }
 }

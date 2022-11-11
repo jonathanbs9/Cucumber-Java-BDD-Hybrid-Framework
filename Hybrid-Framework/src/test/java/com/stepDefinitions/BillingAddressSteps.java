@@ -17,12 +17,14 @@ import java.util.Map;
 
 public class BillingAddressSteps {
     private LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
-    private AccountPage accountPage;
-    private BillingAddressPage billingAddressPage = new BillingAddressPage(DriverFactory.getDriver());
+    private AccountPage accountPage = new AccountPage(DriverFactory.getDriver());
+    private BillingAddressPage billingAddressPage;
 
     @Given("user navigates to billing address page")
     public void user_navigates_to_billing_address_page() {
-        DriverFactory.getDriver().get("https://practice.automationtesting.in/my-account/edit-address/billing/");
+        accountPage.clickAddressesLink();
+        accountPage.clickEscape();
+        //billingAddressPage = accountPage.clickEditBillingAddress();
         System.out.println(" *********************************** \n Visiting Billing Address Page \n ***********************************");
     }
     @When("user fills the form from the given sheetname {string} and rowNumber {int}")
